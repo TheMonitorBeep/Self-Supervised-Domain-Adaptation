@@ -5,7 +5,7 @@ This repository contains the codes for the Supervised Learning Project taken und
 The success of machine learning methods on visual recognition tasks is highly dependent on access to large labeled datasets. Unfortunately, performance often drops significantly when the model is presented with data from a new deployment domain which it did not see in training, a problem known as _dataset shift_. Domain Adaptation techniques are used to transfer source knowledge (from the source domain) and adapt it to novel target domains.
 
 ## Dataset
-For the purpose of this project, I have used two different Domain Adaptation datasets:
+For the purpose of this project, two different Domain Adaptation datasets have been used to test the adaptibility of my model:
 * [VisDA 2017 Dataset](http://ai.bu.edu/visda-2017/)
 * [Office-Home Dataset](http://hemanthdv.org/OfficeHome-Dataset/)
 
