@@ -10,9 +10,14 @@ For the purpose of this project, I have used two different Domain Adaptation dat
 * [Office-Home Dataset](http://hemanthdv.org/OfficeHome-Dataset/)
 
 ### VisDA 2017 Dataset
-The VisDA dataset has 12 classes in the source and the target domain. The challenge is to perform domain adaptation between the two domains and report classification accuracy on the test dataset when the model is solely trained on the source domain images. The source domain images are computer generated and thus easy to label and classify in different classes. On the other hand, the target domain images are real life images with a varied underlying distribution which makes them quite different from the source domain images. 
+The VisDA dataset has 12 classes in the source and the target domain. The challenge is to perform domain adaptation between the two domains and report classification accuracy on the test dataset when the model is solely trained on the source domain images. The source domain images are computer generated and thus easy to label and classify in different classes. On the other hand, the target domain images are real life images with a varied underlying distribution which makes them quite different from the source domain images. The dataset can be downloaded from the above link. 
 
 ![](http://ai.bu.edu/visda-2017/assets/images/classification-shift.png)
+
+### Office-Home
+The Office-Home dataset is another dataset used for the evaluation of domain adaptation techniques. As compared to the VisDA dataset, Office-Home contains 4 different domains, namely, Artistic images, Clip Art, Product images and Real-World images. For each domain, the dataset contains images of 65 object categories found typically in Office and Home settings. There are a total of 15500 images distributed among 65 different object categories. The dataset can be downloaded from the above link.
+
+![](http://hemanthdv.github.io/profile/images/DataCollage.jpg)
 
 ## Domain Adversarial Neural Network (DANN)
 This is an unoffical implementation of the Domain Adversarial Neural Network mentioned in this paper. 
