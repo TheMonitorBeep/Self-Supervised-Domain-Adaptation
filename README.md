@@ -39,7 +39,7 @@ Once the label predictor gets trained on the source domain images and the domain
 
 Once the pseudo-labels of the target domain images have been generated, source domain and target domain image pairs are created for training the second part of the model, the Siamese Network. 
 
-## Siamese Network
+## Siamese Neural Network
 The Siamese network is a neural network in which a pair of images are propagated through the same architecture to generate a same dimensional feature space for both the images. Now, if the images belonged to the same class, the 'distance' between the feature spaces should be minimised, and vice-versa for the other case. The 'distance' between feature spaces is the Euclidean Norm (or L2 norm) between the two vectors. Based on this distance, a loss function called as **Contrastive Loss** is used, which achieves the desired objective mentioned above while back-propagating. 
 
 In this way, the Siamese network ensures that the two domains are now even more closer than before, and thus results in better domain adaptation performance as compared to a single model technique. The DANN model resulted in both, adapted domains and psuedo-labels for the target domain images, thus eliminating the need of labelled datasets in the target domain and allowing the use of the same model trained on a single source domain to be used for multiple different target domains (in this case only one target domain is tested, however research on multiple target domains is also available).
