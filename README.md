@@ -24,5 +24,11 @@ The Office-Home dataset is another dataset used for the evaluation of domain ada
 The first part of the model is a Domain Adversarial Neural Network, a Keras and Tensorflow re-implementation of the paper: [Domain Adversarial Training of Neural Networks](https://arxiv.org/pdf/1505.07818.pdf)
 > Ganin, Y., Ustinova, E., Ajakan, H., Germain, P., Larochelle, H., Laviolette, F., Marchand, M. and Lempitsky, V., 2016. Domain-adversarial training of neural networks. The Journal of Machine Learning Research, 17(1), pp.2096-2030.
 
+### Environment
+Tensorflow: 2.2.0
+<br>Keras: 2.3.1
+<br>Python: 3.7.4
+
 ### Network Structure
+The DANN network structure includes a deep feature extractor (green) and a deep label predictor (blue), which together form a standard feed-forward architecture. Unsupervised domain adaptation is achieved by adding a domain classifier (red) connected to the feature extractor via a **gradient reversal layer** that multiplies the gradient by a certain negative constant during the backpropagation- based training. Otherwise, the training proceeds in a standard way and minimizes the label prediction loss (for source examples) and the domain classification loss (for all samples). Gradient reversal ensures that the feature distributions over the two domains are made similar (as indistinguishable as possible for the domain classifier), thus resulting in the domain-invariant features.
 ![](https://camo.githubusercontent.com/ab629556bb61a4de74baf9004a2c0ce49669351c460da4bf209711a43f9780c9/68747470733a2f2f73312e617831782e636f6d2f323031382f30312f31322f70384b5479442e6d642e6a7067)
