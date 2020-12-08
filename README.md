@@ -45,7 +45,9 @@ The input to the DANN are features extracted from a pre-trained ResNet50 model, 
 > Woo, Sanghyun, et al. "[CBAM: Convolutional block attention module](https://openaccess.thecvf.com/content_ECCV_2018/papers/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.pdf)." Proceedings of the European conference on computer vision (ECCV) 2018.
 > The codes for CBAM are a Keras and Tensorflow re-implementation of the codes available [here](https://github.com/luuuyi/CBAM.PyTorch).
 
-![](Insert Image Here)
+<p align="center">
+  <img height=260 width=700 src="./cbam.png">
+</p>
 
 Attention, in Deep Learning, is a technique to give more importance to features with a greater impact on the output, by assigning weights to each feature. These weights can be interpreted as 'importance weights'. The CBAM applies channel and spatial attention to intermediate feature maps in a CNN through two sequential sub-modules. It can be used at every convolutional block or once at the end. In this project, the CBAM is used once on the features extracted from the fine-tuned ResNet50 backbone network. After the features have gone through the CBAM, a GlobalAveragePooling layer is applied resulting in an output dimension of _1 x 1 x 2048_. These features are the final input to the DANN.
 > Note: Currently, the codes uploaded in this repo do not implement CBAM and simply use ResNet50 extracted features as an input to the DANN, available for download [here](https://pan.baidu.com/s/1sbuDqWWzwLyB1fFIpo5BdQ) (VisDA) and [here](https://pan.baidu.com/s/1qvcWJCXVG8JkZnoM4BVoGg) (Office-Home). 
