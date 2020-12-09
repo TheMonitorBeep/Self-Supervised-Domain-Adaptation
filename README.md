@@ -60,6 +60,11 @@ Once the pseudo-labels of the target domain images have been generated, source d
 ## Siamese Neural Network
 The Siamese network is a neural network in which a pair of images are propagated through the same architecture to generate an equal dimensional feature space for both the images. Now, if the images belonged to the same class, the 'distance' between their feature maps should be minimised, and if the images belong to two different classes, the 'distance' between their feature maps should be maximised. This is done through a particular loss function called as **Contrastive Loss**. The function is such that the loss is equal to the predicted distance if the images are similar, or is equal to the difference between a margin value (taken as 1) and the predicted distance, if the images are different. In both the cases, the loss is minimised during back-propagation, thus achieving the desired objective mentioned above. The 'distance' between feature maps can have different interpretations. In this project, it is the Euclidean Norm (or L2 norm) between the two vectors.
 
-In this way, the Siamese network ensures that the two domains are now even more closer than before, and thus results in better domain adaptation performance as compared to a single model technique. The DANN model resulted in both, adapted domains and psuedo-labels for the target domain images, thus eliminating the need of labelled datasets in the target domain and allowing the use of the same model trained on a single source domain to be used for multiple different target domains (in this case only one target domain is tested, however research on multiple target domains is also available).
+The Siamese network ensures that the two domains are now even more indistinguishable than before, and thus results in better domain adaptation performance as compared to a single model technique. The DANN model resulted in both, adapted domains and psuedo-labels for the target domain images, thus eliminating the need of labelled datasets in the target domain and allowing the use of the same model trained on a single source domain to be used for multiple different target domains (in this case only one target domain is tested, however there is literature on multiple target domains as well).
+
+## Results
+The results of the label classification accuracy on the target domain images for different iterations are as follows:
+* VisDA 
+* Office-Home
 
 
