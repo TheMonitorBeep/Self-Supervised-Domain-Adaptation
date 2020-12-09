@@ -65,6 +65,12 @@ The Siamese network ensures that the two domains are now even more indistinguish
 ## Results
 The results of the label classification accuracy on the target domain images for different iterations are as follows:
 * VisDA 
+
+<img src="./plots/accuracy_1st_iter.png"><img src="./plots/accuracy_2nd_iter.png">
+<img src="./plots/accuracy_3rd_iter.png"><img src="./plots/accuracy_4th_iter.png">
+<img src="./plots/accuracy_5th_iter.png">
+
 * Office-Home
+<img src="./plots/1st_iter.png">
 
 
