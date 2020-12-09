@@ -45,19 +45,26 @@ The input to the DANN are features extracted from a pre-trained ResNet50 model, 
 > Woo, Sanghyun, et al. "[CBAM: Convolutional block attention module](https://openaccess.thecvf.com/content_ECCV_2018/papers/Sanghyun_Woo_Convolutional_Block_Attention_ECCV_2018_paper.pdf)." Proceedings of the European conference on computer vision (ECCV) 2018.
 > The codes for CBAM are a Keras and Tensorflow re-implementation of the codes available [here](https://github.com/luuuyi/CBAM.PyTorch).
 
-![](Insert Image Here)
+<p align="center">
+  <img height=260 width=700 src="./cbam.png">
+</p>
 
 Attention, in Deep Learning, is a technique to give more importance to features with a greater impact on the output, by assigning weights to each feature. These weights can be interpreted as 'importance weights'. The CBAM applies channel and spatial attention to intermediate feature maps in a CNN through two sequential sub-modules. It can be used at every convolutional block or once at the end. In this project, the CBAM is used once on the features extracted from the fine-tuned ResNet50 backbone network. After the features have gone through the CBAM, a GlobalAveragePooling layer is applied resulting in an output dimension of _1 x 1 x 2048_. These features are the final input to the DANN.
 > Note: Currently, the codes uploaded in this repo do not implement CBAM and simply use ResNet50 extracted features as an input to the DANN, available for download [here](https://pan.baidu.com/s/1sbuDqWWzwLyB1fFIpo5BdQ) (VisDA) and [here](https://pan.baidu.com/s/1qvcWJCXVG8JkZnoM4BVoGg) (Office-Home). 
 
 ### Training and Results
-Once the label predictor gets trained on the source domain images and the domain classifier is trained on all image samples (source+target domain), the label predictor is used to generate _pseudo-labels_ for the images in the target domain (only predictions, no training). The threshold value of the confidence of the predicted label is kept at 90%, that is, the predicted label of an image should be greater than or equal to 0.9 probability as compared to other classes.
+Once the label predictor gets trained on the source domain images and the domain classifier is trained on all image samples (source+target domain), the label predictor is used to generate _pseudo-labels_ for the images in the target domain (only predictions, no training). The threshold value of the confidence of the predicted label is kept at 90%, that is, if the predicted label of an image has a probability greater than or equal to 0.9, only then the real image will be labelled.
 
-Once the pseudo-labels of the target domain images have been generated, source domain and target domain image pairs are created for training the second part of the model, the Siamese Network. 
+Once the pseudo-labels of the target domain images have been generated, source domain and target domain image pairs are created for training the second part of the model, the Siamese Neural Network. 
 
 ## Siamese Neural Network
-The Siamese network is a neural network in which a pair of images are propagated through the same architecture to generate a same dimensional feature space for both the images. Now, if the images belonged to the same class, the 'distance' between the feature spaces should be minimised, and vice-versa for the other case. The 'distance' between feature spaces is the Euclidean Norm (or L2 norm) between the two vectors. Based on this distance, a loss function called as **Contrastive Loss** is used, which achieves the desired objective mentioned above while back-propagating. 
+The Siamese network is a neural network in which a pair of images are propagated through the same architecture to generate an equal dimensional feature space for both the images. Now, if the images belonged to the same class, the 'distance' between their feature maps should be minimised, and if the images belong to two different classes, the 'distance' between their feature maps should be maximised. This is done through a particular loss function called as **Contrastive Loss**. The function is such that the loss is equal to the predicted distance if the images are similar, or is equal to the difference between a margin value (taken as 1) and the predicted distance, if the images are different. In both the cases, the loss is minimised during back-propagation, thus achieving the desired objective mentioned above. The 'distance' between feature maps can have different interpretations. In this project, it is the Euclidean Norm (or L2 norm) between the two vectors.
 
-In this way, the Siamese network ensures that the two domains are now even more closer than before, and thus results in better domain adaptation performance as compared to a single model technique. The DANN model resulted in both, adapted domains and psuedo-labels for the target domain images, thus eliminating the need of labelled datasets in the target domain and allowing the use of the same model trained on a single source domain to be used for multiple different target domains (in this case only one target domain is tested, however research on multiple target domains is also available).
+The Siamese network ensures that the two domains are now even more indistinguishable than before, and thus results in better domain adaptation performance as compared to a single model technique. The DANN model resulted in both, adapted domains and psuedo-labels for the target domain images, thus eliminating the need of labelled datasets in the target domain and allowing the use of the same model trained on a single source domain to be used for multiple different target domains (in this case only one target domain is tested, however there is literature on multiple target domains as well).
+
+## Results
+The results of the label classification accuracy on the target domain images for different iterations are as follows:
+* VisDA 
+* Office-Home
 
 
