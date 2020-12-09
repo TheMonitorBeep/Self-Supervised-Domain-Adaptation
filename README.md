@@ -71,6 +71,6 @@ The results of the label classification accuracy on the target domain images for
 <img src="./plots/accuracy_5th_iter.png">
 
 * Office-Home
-<img src="./plots/1st_iter.png">
+<img src="./plots/accuracy_officehome.png">
 
 
